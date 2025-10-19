@@ -164,7 +164,7 @@ src/
 switch-to-base.ps1, switch-to-reviews.ps1
 ```
 link to demo video: https://youtu.be/WiIZls-ug-8?si=SfQ1AwcArWKK_H9a
-link to article: 
+link to article: https://dev.to/rami_gharbi/building-the-apothecary-learning-database-versioning-through-medieval-fantasy-4d2l
 ---
 
 **Built to showcase Guepard's database versioning capabilities** 🧪✨
