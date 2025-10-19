@@ -163,7 +163,8 @@ src/
   store/ (cart)
 switch-to-base.ps1, switch-to-reviews.ps1
 ```
-
+link to demo video: https://youtu.be/WiIZls-ug-8?si=SfQ1AwcArWKK_H9a
+link to article: 
 ---
 
 **Built to showcase Guepard's database versioning capabilities** 🧪✨
