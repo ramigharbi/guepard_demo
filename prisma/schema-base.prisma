@@ -1,0 +1,57 @@
+// Base schema (WITHOUT Reviews) - For main branch
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Item {
+  id           String   @id @default(cuid())
+  name         String
+  description  String
+  category     Category
+  priceGold    Int      @default(0) @map("price_gold")
+  priceSilver  Int      @default(0) @map("price_silver")
+  priceCopper  Int      @default(0) @map("price_copper")
+  imageUrl     String?  @map("image_url")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  @@map("items")
+}
+
+model Promotion {
+  id                String    @id @default(cuid())
+  name              String
+  description       String
+  discountValue     Float     @map("discount_value")
+  appliesToCategory Category? @map("applies_to_category")
+  startDate         DateTime? @map("start_date")
+  endDate           DateTime? @map("end_date")
+  isActive          Boolean   @default(true) @map("is_active")
+  createdAt         DateTime  @default(now()) @map("created_at")
+  updatedAt         DateTime  @updatedAt @map("updated_at")
+
+  @@map("promotions")
+}
+
+model Order {
+  id            String   @id @default(cuid())
+  itemsSnapshot Json     @map("items_snapshot")
+  totalGold     Int      @map("total_gold")
+  totalSilver   Int      @map("total_silver")
+  totalCopper   Int      @map("total_copper")
+  createdAt     DateTime @default(now()) @map("created_at")
+
+  @@map("orders")
+}
+
+enum Category {
+  POTIONS
+  INGREDIENTS
+  SCROLLS
+  TOOLS
+}
